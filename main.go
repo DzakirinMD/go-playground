@@ -1,34 +1,40 @@
 package main
 
-import (
-	"fmt"
-	"strings"
-)
+import "fmt"
 
-// This function will accept string name and return 2 strings
-func getInitials(names string) (string, string) {
-	s := strings.ToUpper(names)
-
-	splitNames := strings.Split(s, " ")
-
-	var initials []string
-
-	for _, values := range splitNames {
-		initials = append(initials, values[:1])
-	}
-
-	if len(initials) > 1 {
-		return initials[0], initials[1]
-	}
-
-	// return the 2 initial as underscode if the name is only 1
-	return initials[0], "_"
-}
+// this variable become packaged scope
+var score = 99.5
 
 func main() {
-	firstName, secondName := getInitials("albert pisa")
-	fmt.Println(firstName, secondName)
 
-	firstName1, secondName1 := getInitials("tifa lockhart")
-	fmt.Println(firstName1, secondName1)
+	// when declared here the PackageScope.go cannot access here because this score belong to main()
+	// var score = 99.5
+
+	// sayHello("mario")
+	// for _, value := range points {
+	// 	fmt.Println(value)
+	// }
+
+	// showScore()
+
+	// Maps()
+
+	// passByValue()
+
+	// PointersLearn()
+
+	// Structs (Entity)
+	mybill := newBill("marios's bill")
+
+	fmt.Println(mybill)
+
+	billObject := bill{
+		name:  "name",
+		items: map[string]float64{},
+		tip:   0,
+	}
+
+	fmt.Println(billObject)
+
+	fmt.Println(mybill.format())
 }
