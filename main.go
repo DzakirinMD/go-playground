@@ -24,17 +24,43 @@ func main() {
 	// PointersLearn()
 
 	// Structs (Entity)
-	mybill := newBill("marios's bill")
+	// mybill := newBill("marios's bill")
 
-	fmt.Println(mybill)
+	// mybill.updateTip(10)
+	// mybill.addItem("coffee", 4.99)
+	// mybill.addItem("pudding", 10)
 
-	billObject := bill{
-		name:  "name",
-		items: map[string]float64{},
-		tip:   0,
+	// fmt.Println(mybill)
+
+	// billObject := bill{
+	// 	name:  "name",
+	// 	items: map[string]float64{},
+	// 	tip:   0,
+	// }
+
+	// fmt.Println(billObject)
+
+	// fmt.Println(mybill.format())
+
+	// Bill part start ###
+	// mybill := createBill()
+
+	// promtOptions(mybill)
+
+	// fmt.Println(mybill)
+
+	// Bill part end ###
+
+	// Interface
+	shapes := []shape{
+		square{length: 15.2},
+		circle{radius: 7.5},
+		circle{radius: 12.3},
+		square{length: 4.9},
 	}
 
-	fmt.Println(billObject)
-
-	fmt.Println(mybill.format())
+	for _, value := range shapes {
+		printShapeInfo(value)
+		fmt.Println("---")
+	}
 }
