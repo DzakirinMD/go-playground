@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 /*
 struct is a blueprint of data
@@ -25,7 +28,7 @@ func newBill(name string) bill {
 }
 
 // Receiver functions. Now this method only can be call by bill object
-func (b bill) format() string {
+func (b *bill) format() string {
 	fs := "Bill breakdown: \n"
 	var total float64 = 0
 
@@ -36,8 +39,35 @@ func (b bill) format() string {
 		total += value
 	}
 
+	// tip
+	fs += fmt.Sprintf("%-25v ...$%0.2f", "tip:", b.tip)
+
 	//total
-	fs += fmt.Sprintf("%-25v ...$%0.2f", "total:", total)
+	fs += fmt.Sprintf("%-25v ...$%0.2f", "\ntotal:", total+b.tip)
 
 	return fs
+}
+
+// update tip
+func (b *bill) updateTip(tip float64) {
+	b.tip = tip
+}
+
+// add an item to the bill
+func (b *bill) addItem(name string, price float64) {
+	b.items[name] = price
+}
+
+// save bill
+func (b *bill) save() {
+	// turn to byte
+	data := []byte(b.format())
+
+	err := os.WriteFile("bills/"+b.name+".txt", data, 0644)
+
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("bill was saved to fill")
 }
