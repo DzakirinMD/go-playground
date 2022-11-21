@@ -39,7 +39,7 @@ func (b *bill) Save() {
 	// turn to byte
 	data := []byte(b.Format())
 
-	err := os.WriteFile("/"+b.name+".txt", data, 0644)
+	err := os.WriteFile("bills/"+b.name+".txt", data, 0644)
 
 	if err != nil {
 		panic(err)
