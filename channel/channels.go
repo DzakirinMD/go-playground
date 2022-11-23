@@ -20,9 +20,6 @@ This pipeline can only support a specific type.
 
 func main() {
 
-	var received float64
-	var ok bool
-
 	// Unbuffered channel, when do not specify the buffer size. or set to 0
 	//ch1 := make(chan float64)
 	//ch2 := make(chan float64, 0)
@@ -39,15 +36,20 @@ func main() {
 	ch3 <- 56
 
 	// RECEIVED from channel
-	received = <-ch3
+	received := <-ch3
 
-	// close channel
+	// A sender can close a channel to indicate that no more values will be sent.
 	close(ch3)
 
+	// When a channel has been closed. it will cause panic exception
+	// Note: Only the sender should close a channel, never the receiver. Sending on a closed channel will cause a panic.
+	go testClosingChannel(ch3)
+
 	// This syntax is used in order to be sure that our channel is not closed or empty
-	received, ok = <-ch3
-	if !ok {
-		log.Println("channel is empty or closed")
+	// return true if the channel is closed
+	received, ok := <-ch3
+	if ok {
+		log.Println("the channel is empty or closed")
 	}
 
 	fmt.Println("data received from channel is", received, ok)
@@ -95,4 +97,14 @@ func longTask2() {
 
 func longTask() {
 	time.Sleep(3 * time.Second)
+}
+
+func testClosingChannel(channel chan float64) {
+
+	_, ok := <-channel
+	if ok {
+		log.Println("the channel is empty or closed")
+	} else {
+		channel <- 100
+	}
 }
