@@ -55,7 +55,7 @@ func main() {
 	// ######################## Bill part end - End ########################
 
 	// ######################## Interface - Start ########################
-	shapes := []shape{
+	shapes := []shaper{
 		square{length: 15.2},
 		circle{radius: 7.5},
 		circle{radius: 12.3},

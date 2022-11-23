@@ -21,6 +21,18 @@ func main() {
 	fmt.Println("launch 2nd goroutine")
 	go printNumber()
 	//time.Sleep(1 * time.Minute)
+
+	// ######################### SELECT ####################### //
+	c := make(chan int)
+	quit := make(chan int)
+	go func() {
+		for i := 0; i < 10; i++ {
+			fmt.Println(<-c)
+		}
+		quit <- 0
+	}()
+	fibonacci(c, quit)
+	// ######################### SELECT ####################### //
 }
 
 func printNumber() {
