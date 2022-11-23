@@ -6,7 +6,7 @@ import (
 )
 
 // interface group type together based on their method
-type shape interface {
+type shaper interface {
 	area() float64
 	circumf() float64
 }
@@ -38,7 +38,7 @@ func (c circle) circumf() float64 {
 }
 
 // using the method
-func printShapeInfo(s shape) {
+func printShapeInfo(s shaper) {
 	fmt.Printf("area of %T is: %0.2f \n", s, s.area())
 	fmt.Printf("circumference of %T is: %0.2f \n", s, s.circumf())
 }
