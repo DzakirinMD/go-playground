@@ -16,14 +16,14 @@ fetch url
 custom HTTP client
 timeout in 5 second
 */
-func Fetch(n int) (*structs.Result, error) {
+func Fetch(number int) (*structs.Result, error) {
 
 	client := &http.Client{
 		Timeout: 5 * time.Minute,
 	}
 
 	// concatenate strings to get url; ex: https://xkcd.com/571/info.0.json
-	url := strings.Join([]string{Url, fmt.Sprintf("%d", n), "info.0.json"}, "/")
+	url := strings.Join([]string{Url, fmt.Sprintf("%d", number), "info.0.json"}, "/")
 
 	req, err := http.NewRequest("GET", url, nil)
 
