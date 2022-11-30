@@ -3,7 +3,7 @@ package workers
 import "os"
 
 func WriteToFile(data []byte) error {
-	f, err := os.Create("goconcurrency/xkcd.json")
+	f, err := os.Create("mini-project/goconcurrency/xkcd.json")
 	if err != nil {
 		return err
 	}

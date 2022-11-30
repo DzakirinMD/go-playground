@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	"go_playground/goconcurrency/workers"
+	"go_playground/mini-project/goconcurrency/workers"
 	"log"
 )
 

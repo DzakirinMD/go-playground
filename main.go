@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go_playground/bills"
+	"go_playground/mini-project/bills"
 )
 
 // this variable become packaged scope

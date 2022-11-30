@@ -2,8 +2,8 @@ package workers
 
 import (
 	"fmt"
-	"go_playground/goconcurrency/api"
-	"go_playground/goconcurrency/structs"
+	"go_playground/mini-project/goconcurrency/api"
+	"go_playground/mini-project/goconcurrency/structs"
 	"log"
 	"sync"
 )
