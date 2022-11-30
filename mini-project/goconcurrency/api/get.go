@@ -3,7 +3,7 @@ package api
 import (
 	"encoding/json"
 	"fmt"
-	"go_playground/goconcurrency/structs"
+	"go_playground/mini-project/goconcurrency/structs"
 	"net/http"
 	"strings"
 	"time"
