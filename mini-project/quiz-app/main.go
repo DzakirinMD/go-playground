@@ -44,7 +44,9 @@ problemLoop:
 		fmt.Printf("Problem %d: %s=", index+1, value.Question)
 
 		go func() {
-			fmt.Scanf("%s\n", &answer)
+			// linux new line - \n
+			// windows new line - \r\n
+			fmt.Scanf("%s\r\n", &answer)
 			// add answer into channel
 			answerChannel <- answer
 		}()
