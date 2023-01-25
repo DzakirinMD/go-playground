@@ -21,6 +21,10 @@ func StandardLibrary() {
 	// this will return the slice of greeting
 	fmt.Println(strings.Split(greeting, " "))
 
+	// string replace
+	stringToReplace := "P:\\Project\\project-name/content/topic/"
+	fmt.Println(strings.Replace(stringToReplace, "\\", "/", -1))
+
 	// the original value is unchanged when altered by string library
 	fmt.Println("original string value = ", greeting)
 
