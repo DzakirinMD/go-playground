@@ -1,5 +1,9 @@
 package main
 
+import (
+	"go_playground/assets"
+)
+
 // this variable become packaged scope
 var score = 99.5
 
@@ -86,4 +90,14 @@ func main() {
 	//}
 
 	//######################## Filepath - End ########################
+
+	////######################## go:embed - Start ########################
+
+	gpgKey := &assets.GPGKey
+	gpgUUID := &assets.GPGUUID
+
+	println(*gpgKey)
+	println(*gpgUUID)
+
+	//######################## go:embed - End ########################
 }
