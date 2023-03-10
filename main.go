@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"strings"
+)
+
 // this variable become packaged scope
 var score = 99.5
 
@@ -86,4 +91,7 @@ func main() {
 	//}
 
 	//######################## Filepath - End ########################
+
+	sendSbomURL := strings.SplitN("PostSBOM=http://localhost:3000/sbom", "PostSBOM=", -1)
+	fmt.Println(sendSbomURL[1])
 }
